@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { withStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
@@ -12,7 +11,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LinearProgress from '@mui/material/LinearProgress';
 import Paper from './Paper.jsx'
-import api from './config.js'
 
 import axios from 'axios';
 
@@ -39,9 +37,7 @@ const Block = () => {
         maxBodyLength: Infinity,
         url: 'https://api.gyanibooks.com/search_publication/',
         headers: {
-            // 'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            // 'x-api-key': api
         },
         data: data
     };
@@ -57,9 +53,6 @@ const Block = () => {
                 console.log(error);
             });
     }
-
-    // useEffect(() => {
-    // }, [result])
 
     return (
         <Card style={{ height: "90vh", width: "34vw", padding: "16px" }}>
@@ -81,7 +74,7 @@ const Block = () => {
             </Box>
             {/* border:"1px solid red" */}
             <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "16px 0px", height: "12%" }}>
-                <TextField id="outlined-basic" label="Search" variant="outlined" value={searchValue} onChange={handleSearch} style={{ width: "84%", height: "80%", backgroundColor: "#eff6ff" }} />
+                <TextField id="outlined-basic" autoComplete="off" label="Search" variant="outlined" value={searchValue} onChange={handleSearch} style={{ width: "84%", height: "80%", backgroundColor: "#eff6ff" }} />
                 <Box style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "12px", height: "44%", width: "8%", backgroundColor: "#1976d2", borderRadius: "4px" }}>
                     <SearchIcon onClick={search} style={{ color: "#fff", fontSize: "32px" }} />
                 </Box>

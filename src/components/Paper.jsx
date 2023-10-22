@@ -15,10 +15,6 @@ const PaperComp = (props) => {
         abstract=props.abstract.substring(0,200)+'...';
     }
 
-    // function handleExplore(){
-    //     window.location.replace(props.url);
-    // }
-
     return (
         <Paper elevation={3} style={{padding:"2px", marginBottom:"8px"}}>
             <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin:"8px", marginBottom:"16px"}}>
